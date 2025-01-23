@@ -6,16 +6,23 @@ x = 0
 y = 0
 z = 0
 
-pyrosim.Start_SDF("box.sdf")
+def Create_world():
+    pyrosim.Start_SDF("world.sdf")
+    pyrosim.Send_Cube(name="Box", pos=[-2,2,z+0.5] , size=[1,1,1])
+    pyrosim.End()
 
-size = [1,1,1]
-for x_ in range(0,5):
-    for y_ in range(0,5):
-        count = 0
-        pyrosim.Send_Cube(name="Box", pos=[x+x_,y+y_,z+0.5] , size=[1,1,1])
-        count = 1
-        for z_ in range(1,10):
-            multiplier = 0.9**z_
-            pyrosim.Send_Cube(name="Box", pos=[x+x_,y+y_,z+z_+0.5] , size = np.array(size)*multiplier)
+def Create_robot():
+    pyrosim.Start_URDF("body.urdf")
+    pyrosim.Send_Cube(name="Torso", pos=[x,y,1+0.5] , size=[1,1,1])
+    pyrosim.Send_Joint( name = "Torso_front_leg" , parent= "Torso" , child = "front_leg" , type = "revolute", position = [0.5,0,1])
+    pyrosim.Send_Cube(name="front_leg", pos=[0.5,0,-0.5] , size=[1,1,1])
+    pyrosim.Send_Joint( name = "Torso_back_leg" , parent= "Torso" , child = "back_leg" , type = "revolute", position = [-0.5,0,1])
+    pyrosim.Send_Cube(name="back_leg", pos=[-0.5,0,-0.5] , size=[1,1,1])
+
     
-pyrosim.End()
+
+    pyrosim.End()
+
+Create_world()
+Create_robot()
+
