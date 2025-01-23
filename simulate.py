@@ -9,11 +9,12 @@ physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())  # location of .urdf
 p.setGravity(0,0,-9.8)                                  # gravity
 planeId = p.loadURDF("plane.urdf")                      # set floor 
-p.loadSDF("box.sdf")                                    
+robotId = p.loadURDF("body.urdf")   
+p.loadSDF("world.sdf")                                    
 
 count = 0
-for _ in range(1000):
-    
+for _ in range(10000):
+
     # step simulation and time delay 
     p.stepSimulation()
     time.sleep(1/60)
