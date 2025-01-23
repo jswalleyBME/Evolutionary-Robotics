@@ -14,12 +14,10 @@ def Create_world():
 def Create_robot():
     pyrosim.Start_URDF("body.urdf")
     pyrosim.Send_Cube(name="Torso", pos=[x,y,1+0.5] , size=[1,1,1])
-    pyrosim.Send_Joint( name = "Torso_front_leg" , parent= "Torso" , child = "front_leg" , type = "revolute", position = [0.5,0,1])
-    pyrosim.Send_Cube(name="front_leg", pos=[0.5,0,-0.5] , size=[1,1,1])
-    pyrosim.Send_Joint( name = "Torso_back_leg" , parent= "Torso" , child = "back_leg" , type = "revolute", position = [-0.5,0,1])
-    pyrosim.Send_Cube(name="back_leg", pos=[-0.5,0,-0.5] , size=[1,1,1])
-
-    
+    pyrosim.Send_Joint( name = "Torso_FrontLeg" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = [0.5,0,1])
+    pyrosim.Send_Cube(name="FrontLeg", pos=[0.5,0,-0.5] , size=[1,1,1])
+    pyrosim.Send_Joint( name = "Torso_BackLeg" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [-0.5,0,1])
+    pyrosim.Send_Cube(name="BackLeg", pos=[-0.5,0,-0.5] , size=[1,1,1])
 
     pyrosim.End()
 
