@@ -36,14 +36,15 @@ class SIMULATION:
 
             p.stepSimulation()
             self.robot.Sense(n)
+            self.robot.Think()
             self.robot.Act(n)
             time.sleep(1/50)
-            print(n)
+            #print(n)
 
         keys = self.robot.sensors.keys()
 
-        for key in keys:
-            print(self.robot.sensors[key].values)
+        # for key in keys:
+        #     print(self.robot.sensors[key].values)
 
 
 
