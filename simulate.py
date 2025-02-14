@@ -2,10 +2,13 @@
 # evolutionary robotics 
 
 from simulation import SIMULATION
+import os
 
 simulation = SIMULATION()
 run = simulation.Run()
 simulation.__del__()
+
+#os.system("py generate.py")
 
 # import pybullet as p
 # import pybullet_data
