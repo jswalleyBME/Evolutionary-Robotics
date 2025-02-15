@@ -11,9 +11,12 @@ from robot import ROBOT
 
 class SIMULATION:
 
-    def __init__(self):
+    def __init__(self, directOrGUI):
 
-        self.physicsClient = p.connect(p.GUI)
+        if directOrGUI == "DIRECT":
+            self.physicsClient = p.connect(p.DIRECT)
+        else:
+            self.physicsClient =  p.connect(p.GUI)
 
         p.setAdditionalSearchPath(pybullet_data.getDataPath())      # location of .urdf
         p.setGravity(0,0,-9.8)                                      # gravity
@@ -45,6 +48,9 @@ class SIMULATION:
 
         # for key in keys:
         #     print(self.robot.sensors[key].values)
+    
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()
 
 
 

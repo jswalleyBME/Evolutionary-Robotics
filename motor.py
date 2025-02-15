@@ -15,7 +15,7 @@ class MOTOR:
         self.amplitude = c.amplitude_front
         self.frequency = c.frequency_front
         self.phaseOffset = c.phaseOffset_front  ## chnage constants file eventually 
-        print(self.jointName)
+        #print(self.jointName)
         
         #print(self.values)
 

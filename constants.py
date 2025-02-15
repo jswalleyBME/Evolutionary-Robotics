@@ -16,3 +16,7 @@ backLegSensorValues = np.zeros(1000)
 amplitude_back = np.pi/4
 frequency_back = 5/100
 phaseOffset_back = np.pi/6
+
+# number of generations
+numberOfGenerations = 10
+

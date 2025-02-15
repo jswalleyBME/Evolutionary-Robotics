@@ -2,10 +2,13 @@
 # evolutionary robotics 
 
 from simulation import SIMULATION
-import os
+import sys
 
-simulation = SIMULATION()
+directOrGUI = sys.argv[1]
+
+simulation = SIMULATION(directOrGUI)
 run = simulation.Run()
+simulation.Get_Fitness()
 simulation.__del__()
 
 #os.system("py generate.py")
