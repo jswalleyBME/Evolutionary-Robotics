@@ -13,7 +13,7 @@ class PARALLEL_HILLCLIMBER:
     def __init__(self):
         
         os.system("del brain*.nndf")
-        os.system("del fitness*.nndf")
+        os.system("del fitness*.txt")
         os.system("del tmp*.txt")
 
         self.parents = {}
@@ -72,8 +72,10 @@ class PARALLEL_HILLCLIMBER:
 
     def Show_best(self):
         fitness_dict = {}
+        
         for key in self.parents.keys():
             fitness_dict[key] = self.parents[key].fitness
+
         min_key = min(fitness_dict, key=fitness_dict.get)
         self.parents[min_key].Start_Simulation("GUI")
 
