@@ -7,11 +7,14 @@ import numpy as np
 
 from world import WORLD
 from robot import ROBOT
+import os
 
 
 class SIMULATION:
 
-    def __init__(self, directOrGUI):
+    def __init__(self, directOrGUI, soluton_ID):
+
+        self.soluton_ID = soluton_ID
 
         if directOrGUI == "DIRECT":
             self.physicsClient = p.connect(p.DIRECT)
@@ -21,7 +24,7 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())      # location of .urdf
         p.setGravity(0,0,-9.8)                                      # gravity
         
-        self.robot = ROBOT()
+        self.robot = ROBOT(soluton_ID)
         self.world = WORLD()
 
         pyrosim.Prepare_To_Simulate(self.robot.robotId)
@@ -29,9 +32,9 @@ class SIMULATION:
         self.robot.Prepare_to_act()
 
     def __del__(self):
-
+        
         p.disconnect()
-
+        
 
     def Run(self):
 
@@ -49,8 +52,8 @@ class SIMULATION:
         # for key in keys:
         #     print(self.robot.sensors[key].values)
     
-    def Get_Fitness(self):
-        self.robot.Get_Fitness()
+    def Get_Fitness(self, soluton_ID):
+        self.robot.Get_Fitness(soluton_ID)
 
 
 

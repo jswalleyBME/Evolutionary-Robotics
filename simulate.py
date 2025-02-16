@@ -3,13 +3,17 @@
 
 from simulation import SIMULATION
 import sys
+import os
 
 directOrGUI = sys.argv[1]
+soluton_ID = sys.argv[2]
 
-simulation = SIMULATION(directOrGUI)
+simulation = SIMULATION(directOrGUI, soluton_ID)
 run = simulation.Run()
-simulation.Get_Fitness()
+simulation.Get_Fitness(soluton_ID)
 simulation.__del__()
+
+
 
 #os.system("py generate.py")
 

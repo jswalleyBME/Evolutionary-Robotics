@@ -20,3 +20,5 @@ phaseOffset_back = np.pi/6
 # number of generations
 numberOfGenerations = 10
 
+# parallelHC 
+populationSize = 10
