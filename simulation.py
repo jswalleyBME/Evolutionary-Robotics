@@ -44,7 +44,7 @@ class SIMULATION:
             self.robot.Sense(n)
             self.robot.Think()
             self.robot.Act(n)
-            time.sleep(1/500)
+            time.sleep(1/100)
             #print(n)
 
         keys = self.robot.sensors.keys()

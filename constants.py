@@ -22,3 +22,10 @@ numberOfGenerations = 10
 
 # parallelHC 
 populationSize = 10
+
+# number sensors and motors 
+numSensorNeurons = 4
+numMotorNeurons = 4
+
+# cap motor range 
+motorJointRange = 0.3
